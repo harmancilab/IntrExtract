@@ -23,6 +23,9 @@ ${LIB_DIR}/ntrx_expression_tools.o \
 ${LIB_DIR}/ntrx_nomenclature.o \
 ${LIB_DIR}/ntrx_annot_region_tools.o \
 ${LIB_DIR}/ntrx_gff_utils.o \
+${LIB_DIR}/ntrx_human_data_processing.o \
+${LIB_DIR}/ntrx_gene_model.o \
+${LIB_DIR}/ntrx_gencode_gtf.o \
 ${LIB_DIR}/ntrx_file_utils.o \
 ${LIB_DIR}/ntrx_histogram.o \
 
