@@ -1157,23 +1157,18 @@ bool t_string::get_next_token(char* string, char* buffer, int l_buffer, const ch
 		buffer[i_buff_char] = 0;
 	}
 
-	while(string[i_cur_char] != 0)
+	while (string[i_cur_char] != 0)
 	{
 		// Search for delimiters.
 		int i_delim = 0;
-		while(delimiter_list[i_delim] != 0)
+		while (delimiter_list[i_delim] != 0)
 		{
-			if(string[i_cur_char] == delimiter_list[i_delim])
+			if (string[i_cur_char] == delimiter_list[i_delim])
 			{
 				// Move to the next character right after the delimiter.
 				i_cur_char++;
 
-				if (buffer != NULL)
-				{
-					buffer[i_buff_char] = 0;
-				}
-
-				if(i_buff_char > 0)
+				if (i_buff_char > 0)
 				{
 					return true;
 				}
@@ -1186,25 +1181,21 @@ bool t_string::get_next_token(char* string, char* buffer, int l_buffer, const ch
 			i_delim++;
 		} // delimiter list search.
 
-		// Copy the current character to the buffer and update the indices.
-		// Note that we only increase the buffer's position if it is within buffer length.
+		// We are not at a delimiter.
+		// Copy the current character and a terminating char to the buffer and update the indices.
 		if (buffer != NULL &&
-			i_buff_char < l_buffer)
+			(i_buff_char + 1) < l_buffer)
 		{
 			buffer[i_buff_char] = string[i_cur_char];
+			buffer[i_buff_char + 1] = 0;
 		}
 
 		i_buff_char++;
 
-		i_cur_char++;	
+		i_cur_char++;
 	} // string parsing loop.
 
-	if (buffer != NULL)
-	{
-		buffer[i_buff_char] = 0;
-	}
-
-	if(i_buff_char > 0)
+	if (i_buff_char > 0)
 	{
 		return true;
 	}

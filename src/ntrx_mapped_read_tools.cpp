@@ -155,7 +155,12 @@ bool get_SAM_read_tag_entry(char* sam_read_line, char* tag_entry_buffer, const c
 		i_tok++;
 	} // i_tok loop.
 
-	  // Loop through next set of tokens.
+	if (__DUMP_MAPPED_READ_TOOLS_MSGS__)
+	{
+		fprintf(stderr, "Located 11. token @ %d\n", i_cur_char);
+	}
+
+	// Loop through next set of tokens.
 	bool found_tag = false;
 	while (t_string::get_next_token(sam_read_line, cur_SAM_entry, l_entry_buff, "\t", i_cur_char))
 	{

@@ -24,7 +24,7 @@ if [ $RUN_GET_GENES_INTERVAL == 1 ]
 then
         # Extract the exons.
         gzip -cd ${ANNOTATION_GFF_GZ_FP} | grep -v "tag=PAR" | grep "gene_type=protein_coding;" | awk {'if($1!="chrY" && $1!="chrM" && $3=="exon")print $0'} > annotation_exons.gff
-        ./bin/IntrExtract -GENCODE_GTF_2_Interval_per_feature annotation_exons.gff exon gene_id
+        ./bin/IntrExtract -GENCODE_GTF_2_Interval_per_feature annotation_exons.gff exon gene_id regions.interval
 		
 		# ABOVE COMMAND CREATES THE FILE CALLED regions.interval.
 fi
